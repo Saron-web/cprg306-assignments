@@ -9,9 +9,9 @@ import {
   onAuthStateChanged,
   User,
 } from "firebase/auth";
-import { auth } from "../../utils/firebase"; 
+import { auth } from "../utils/firebase";
 
-// Context type
+// Define the shape of the context
 interface AuthContextType {
   user: User | null;
   googleSignIn: () => Promise<any>;
@@ -19,10 +19,10 @@ interface AuthContextType {
   firebaseSignOut: () => Promise<void>;
 }
 
-// Create context with correct type
+// Create the context with the correct type
 export const AuthContext = createContext<AuthContextType | null>(null);
 
-// Provider props type
+// Define props for the provider
 interface ProviderProps {
   children: ReactNode;
 }
@@ -46,7 +46,7 @@ export function AuthContextProvider({ children }: ProviderProps) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      setUser(currentUser); // now correctly typed
     });
     return () => unsubscribe();
   }, []);
