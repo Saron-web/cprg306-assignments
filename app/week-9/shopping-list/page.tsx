@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useUserAuth } from "../../contexts/AuthContext";
 import Link from "next/link";
 import itemsData from "../items.json";
-import ItemList from "../item-list";
+import ItemList from "./item-list";
 import NewItem from "../new-item";
 import MealIdeas from "../meal-ideas";
 
