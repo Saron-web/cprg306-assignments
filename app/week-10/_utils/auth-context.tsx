@@ -2,12 +2,15 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import {
+  GithubAuthProvider,
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-  GithubAuthProvider,
+  getAuth,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { app } from "../_utils/firebase";
+
+const auth = getAuth(app);
 
 const AuthContext = createContext<any>(null);
 
